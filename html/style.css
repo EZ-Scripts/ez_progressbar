@@ -1,0 +1,60 @@
+@font-face {
+  font-family: rdr;
+  src: url(assets/fonts/rdrlino-regular-webfont.woff);
+}
+body {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.divwrap {
+	display:none;
+  margin: auto;
+  margin-bottom: 3vh;
+  height: 4.3vh;
+  width: 27.5vh;
+  clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 30% 2%, 10% 1%, 30% 5%, 34% 1%, 39% 4%, 43% 5%, 50% 6%, 50% 7%, 53% 3%, 58% 6%, 61% 9%, 68% 4%, 74% 7%, 78% 9%, 84% 5%, 105% 9%, 95% 16%, 98% 19%, 99% 27%, 99% 3%, 96% 45%, 96% 50%, 97% 57%, 97% 61%, 96% 69%, 99% 82%, 95% 88%, 94% 93%, 97% 98%, 82% 99%, 81% 94%, 74% 91%, 61% 96%, 54% 97%, 50% 93%, 35% 99%, 34% 90%, 31% 90%, 15% 94%, 14% 93%, 9% 88%, 1% 90%, 6% 90%, 0% 57%, 2% 45%, 3% 43%, 2% 10%, 9% 20%, 2% 15%, 3% 13%);
+  color:white;
+  background-color: rgba(0, 0, 0, 0.774);
+}
+
+#innertext {
+  color: white;
+  font-family: "rdr";
+  text-shadow: 1px 1px 1px #00000033;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 99; /* Ensure it is above other divs */
+  position: absolute; /* Position it absolutely */
+  top: 0; /* Align it to the top */
+  left: 0; /* Align it to the left */
+  width: 100%; /* Make it span the full width */
+}
+
+.progress {
+  position:absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.progress-wrap {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#progress-bar {
+  /* margin:1px; */
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(146, 11, 11, 0.767);
+  left: 0;
+  position: absolute;
+  top: 0;
+  width:50%;
+  z-index: 98;
+}
