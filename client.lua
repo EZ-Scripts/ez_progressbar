@@ -52,3 +52,7 @@ RegisterNUICallback('ProgressFinished', function(args, nuicb)
     
     nuicb('ok')
 end)
+
+RegisterCommand('progress', function(source, args, raw)
+    _internalStart("Testing out progress", 5000, nil, false)
+end, false)

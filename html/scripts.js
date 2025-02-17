@@ -5,25 +5,20 @@ $(function(){
             if (item !== undefined && item.type === "ui") {		                
                 if (item.display === true) {
                     $("#divwrap").show();
-                    var start = new Date();
+                    var start = Date.now();
                     var maxTime = item.time;
                     var text = item.message;
-                    var timeoutVal = Math.floor(maxTime/100);
-                    animateUpdate();
-
+                    var interval = 1; // Reduce interval for more accurate timing
                     $('#innertext').text(text);
 
-                    function updateProgress(percentage) {
-                        $('#progress-bar').css("width", percentage + "%");
-                    }
+                    function updateProgress() {
+                        var now = Date.now();
+                        var timeDiff = now - start;
+                        var perc = Math.min((timeDiff / maxTime) * 100, 100);
+                        $('#progress-bar').css("width", perc + "%");
 
-                    function animateUpdate() {
-                        var now = new Date();
-                        var timeDiff = now.getTime() - start.getTime();
-                        var perc = Math.round((timeDiff/maxTime)*100);
-                        if (perc <= 100) {
-                            updateProgress(perc);
-                            setTimeout(animateUpdate, timeoutVal);
+                        if (perc < 100) {
+                            setTimeout(updateProgress, interval);
                         } else {
                             fetch(`https://${GetParentResourceName()}/ProgressFinished`, {
                                 method: "POST"
@@ -31,6 +26,8 @@ $(function(){
                             $("#divwrap").hide();
                         }
                     }
+
+                    updateProgress();
                 } else {
                     $("#divwrap").hide();
                 }
